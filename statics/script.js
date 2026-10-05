@@ -1,3 +1,5 @@
+var shoppers = [];
+
 function validate(obj) {
     var value = obj.value.trim();
     var msg = "";
@@ -36,7 +38,17 @@ function validateForm() {
     }
 
     if (valid) {
-        alert("Sign up successful!");
+        var shopper = {
+            "username": document.getElementById("username").value,
+            "email": document.getElementById("email").value,
+            "password": document.getElementById("password").value,
+            "confirmPassword": document.getElementById("confirmPassword").value
+        };
+
+        shoppers.push(shopper);
+
+        document.getElementById("jsonOutput").innerText = JSON.stringify(shoppers, null, 2);
     }
-    return valid;
+
+    return false;
 }
